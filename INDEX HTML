@@ -1,0 +1,60 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earn & Redeem</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 90%;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            background: green;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Task-Based Earning</h2>
+        <p>Complete tasks to earn points and redeem Google Play codes!</p>
+        <p><strong>Points: <span id="points">0</span></strong></p>
+        <button onclick="earnPoints(100)">Complete a Task (+100 Points)</button>
+        <button onclick="redeemCode()">Redeem ₹100 Play Code (500 Points)</button>
+    </div>
+    <script>
+        let points = 0;
+        function earnPoints(amount) {
+            points += amount;
+            document.getElementById('points').innerText = points;
+        }
+        function redeemCode() {
+            if (points >= 500) {
+                alert("Congratulations! Your ₹100 Google Play Code is: XXXX-XXXX-XXXX-XXXX");
+                points -= 500;
+                document.getElementById('points').innerText = points;
+            } else {
+                alert("You need at least 500 points to redeem.");
+            }
+        }
+    </script>
+</body>
+</html>
